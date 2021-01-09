@@ -1,12 +1,23 @@
+// Standard import
 const axios = require("axios");
+const dotenv = require("dotenv");
 
-flipkartUrl =
+// Envrionment configuration
+dotenv.config();
+
+// Constants
+const flipkartUrl =
+    process.env.FLIPKART ||
     "https://www.flipkart.com/search?q=books&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off";
 
-snapDealUrl =
+const snapDealUrl =
+    process.env.SNAPDEAL ||
     "https://www.snapdeal.com/products/books?sort=plrty&SRPID=customsearch&keywd=books";
 
-amazonUrl = "https://www.amazon.in/b?node=976389031";
+const amazonUrl =
+    process.env.AMAZON || "https://www.amazon.in/b?node=976389031";
+
+// Methods to collect data using axio module
 
 function getFlipkartData() {
     console.log("Fetching Flipkart Products: ");

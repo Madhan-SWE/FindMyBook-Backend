@@ -1,5 +1,7 @@
+// Standard import
 const cheerio = require("cheerio");
 
+// Method to process data from snapdeal
 function processSnapDealData(res, snapDealData) {
     var snapRes = [];
     let $ = cheerio.load(snapDealData);
@@ -28,28 +30,27 @@ function processSnapDealData(res, snapDealData) {
         const img = $(this)
             .find("div.product-tuple-image>a>picture>source")
             .attr("srcset");
-        
+
         let buyingUrl = $(this).find("div.product-tuple-image>a").attr("href");
 
-        function convertRating(rating){
+        // Local method to convert rating into a value
+        function convertRating(rating) {
             // console.log(rating)
-            if(rating)
-            {
-                rating = rating.split("width:")[1].split("%")[0]
-                rating = parseFloat(rating).toFixed(2)
-            
+            if (rating) {
+                rating = rating.split("width:")[1].split("%")[0];
+                rating = parseFloat(rating).toFixed(2);
             }
-            return rating
-            
+            return rating;
         }
 
         let ratingToken =
             "div.product-tuple-description>div.product-desc-rating>a>" +
             "div.rating>div.rating-stars>div.filled-stars";
         let rating = $(this).find(ratingToken).attr("style");
-        rating = convertRating(rating)
-        let totalRatingsToken = "div.product-tuple-description>div.product-desc-rating>a>" +
-        "div.rating>p.product-rating-count";
+        rating = convertRating(rating);
+        let totalRatingsToken =
+            "div.product-tuple-description>div.product-desc-rating>a>" +
+            "div.rating>p.product-rating-count";
         let totalRatings = $(this).find(totalRatingsToken).text();
         snapRes.push({
             name,
@@ -60,10 +61,10 @@ function processSnapDealData(res, snapDealData) {
             rating,
             totalRatings,
             buyingUrl,
-            website: "Snapdeal"
+            website: "Snapdeal",
         });
     });
     res.push(snapRes);
 }
 
-module.exports = { processSnapDealData }
+module.exports = { processSnapDealData };
