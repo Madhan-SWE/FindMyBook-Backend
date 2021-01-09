@@ -3,7 +3,7 @@ const mongodb = require("mongodb");
 const cors = require("cors");
 const dotenv = require("dotenv");
 
-const { scrapObjects } = require("./utilities/scrap")
+const { scrapObjects } = require("./utilities/utils")
 
 dotenv.config();
 const app = express();
