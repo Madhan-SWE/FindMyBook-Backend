@@ -1,0 +1,8 @@
+front end repo: https://github.com/Madhan-SWE/FindMyBook-FrontEnd
+Last commit: https://github.com/Madhan-SWE/FindMyBook-FrontEnd/commit/56767c8cd6b83dbd17a0267250bc0d2be16d6cae
+
+back-end repo: https://github.com/Madhan-SWE/FindMyBook-Backend
+Last commit: https://github.com/Madhan-SWE/FindMyBook-Backend/commit/7df22c3f987f0ab291c83a3aeeb1aae9152763c8
+
+Netlify url (front end): https://findmybook.netlify.app/
+heroku url (back end): https://find-my-book-app.herokuapp.com
