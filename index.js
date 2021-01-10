@@ -31,7 +31,7 @@ app.listen(port, () => console.log("App is running in port: ", port));
 // API end point to update database data manually
 app.get("/getBooks", async (req, resp) => {
     try {
-        // scrapObjects();
+        scrapObjects();
     } catch (err) {
         console.log(err);
         resp.status(500).json({
