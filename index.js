@@ -23,15 +23,15 @@ const dbName = process.env.DBNAME || "bookwormDB";
 const collectionName = process.env.COLLECTIONNAME || "books";
 
 // Scrapping E-commerce sites for every 12 hours
-cron.schedule("* */12 * * *", scrapObjects);
+cron.schedule("1 */12 * * *", scrapObjects);
 
 // Listen method
 app.listen(port, () => console.log("App is running in port: ", port));
 
 // API end point to update database data manually
-app.get("/getProducts", async (req, resp) => {
+app.get("/getBooks", async (req, resp) => {
     try {
-        scrapObjects();
+        // scrapObjects();
     } catch (err) {
         console.log(err);
         resp.status(500).json({
